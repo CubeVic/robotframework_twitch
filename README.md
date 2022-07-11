@@ -32,7 +32,7 @@ It requires the follow libraries.
 10. Take snapshot.
 
 ## ScreenCast
-![ScreenCast](images/robotframework_screencast.mov)
+![ScreenCast](images/robotframework_screencast.gif)
 
 ## Compromises
 
