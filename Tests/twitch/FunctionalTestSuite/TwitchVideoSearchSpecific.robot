@@ -1,48 +1,76 @@
 *** Settings ***
-Library  SeleniumLibrary
 Library  Collections
+Library  SeleniumLibrary
+
 
 *** Variables ***
-*** Test Cases ***
-Specifying a Known Mobile Device
+${WARNING_MESSAGE}      //div[text()='Start Watching']
+${SEARCH_BUTTON}        //button[@aria-label='Search']
+${SEARCH_INPUT}         //input[@type='search']
+${TAB_CHANNELS}         //div/p[text()='Channels']
+${LIST_VIDEOS}          //div[@role='list']//a
+
+*** Keywords ***
+Define mobile browser
     ${mobile emulation}=    Create Dictionary    deviceName=iPhone XR
     ${chrome options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome options}    add_experimental_option    mobileEmulation    ${mobile emulation}
     Create Webdriver    Chrome    chrome_options=${chrome options}
-    open browser    https://twitch.tv
-    Sleep    10 secs
-    click button  //button[@aria-label='Search']
-    input text  //input[@type='search']  monster hunter: world
-    press keys  //input[@type='search']  ENTER
-    click element  //div/p[text()='Channels']
-    Wait Until Element Is Visible  //div[@role='list']//a
-#    ${the a-s}=     Get WebElements    //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
-#    ${tamano}=  Get Length  ${the a-s}
-#    scroll element into view  ${the a-s}[9]
-#    ${the a-s}=     Get WebElements    //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
-##    ${tamano}=  Get Length  ${the a-s}
-#    scroll element into view  ${the a-s}[9]
-#    ${the a-s}=     Get WebElements    //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
-##    ${tamano}=  Get Length  ${the a-s}
-#    scroll element into view  ${the a-s}[9]
 
+Search for keyword
+    Wait Until Element Is Visible  ${SEARCH_INPUT}
+    input text  ${SEARCH_INPUT}  monster hunter: world
+    press keys  ${SEARCH_INPUT}  ENTER
 
-#    FOR     ${i}        IN      RANGE       1       9
-#        ${the a-s}=     Get WebElements    //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
-#        scroll element into view  ${the a-s}[9]
-#        ${text}=  get text  ${the a-s}[9]
-#        log to console  ${text}
-#    END
-
-    TRY
-       click element  //a[@href='/chiamisu']
-    EXCEPT
-        LOG TO CONSOLE  EXCEPT with no arguments catches any exception.
+Scroll Down
+    FOR     ${i}        IN RANGE       0        10
+        TRY
+            press keys      NONE    TAB
+            log to console      ${i}
+        EXCEPT
+            LOG TO CONSOLE  use tab to scroll down
+        END
     END
 
-#    click element  //a[@href='/chiamisu']
-#    wait until element is visible  //button[@aria-label='Close']
-#    click element  //button[@aria-label='Close']
-#    click element  //button/div/div[@data-a-target="tw-core-button-label-text"]
-#    sleep  5 secs
-#    capture page screenshot
+Try specific channel
+    ${videos}=  Get WebElements    //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
+    TRY
+       click element        //a[@href='/94goinwater']
+       log to console  Channel found
+    EXCEPT
+        LOG TO CONSOLE  The specific channel is not in the list. click random channel
+        click element  ${videos}[9]
+    END
+
+Close lightweight model message
+    wait until element is visible  //button[@aria-label='Close']
+    click element  //button[@aria-label='Close']
+
+Check for content warning
+    TRY
+        wait until element is visible  ${WARNING_MESSAGE}
+        click element  ${WARNING_MESSAGE}
+    EXCEPT
+        log to console  No warning message
+    END
+
+
+*** Test Cases ***
+Twitch test with scrolling
+    Define mobile browser
+    Go To                           https://twitch.tv
+    Wait Until Element Is Visible   ${SEARCH_BUTTON}
+    click button                    ${SEARCH_BUTTON}
+    Search for keyword
+    click element                   ${TAB_CHANNELS}
+    Wait Until Element Is Visible   ${LIST_VIDEOS}
+    Scroll Down
+    Capture page Screenshot
+    Try specific channel
+    Close lightweight model message
+    Check for content warning
+    Sleep  5 secs
+    Capture page screenshot
+    [teardown]  close browser
+
+
