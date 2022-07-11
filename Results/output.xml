@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.9 on darwin)" generated="20220711 21:28:30.567" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.8.9 on darwin)" generated="20220711 21:56:25.667" rpa="false" schemaversion="3">
 <suite id="s1" name="TwitchVideoSearch" source="/Users/victorandresaguirrefernandez/PycharmProjects/test_robotframework/Tests/twitch/FunctionalTestSuite/TwitchVideoSearch.robot">
 <test id="s1-t1" name="Twitch test" line="61">
 <kw name="Define mobile browser">
@@ -7,16 +7,16 @@
 <var>${mobile emulation}</var>
 <arg>deviceName=${MOBILE_DEVICE}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220711 21:28:30.926" level="INFO">${mobile emulation} = {'deviceName': 'iPhone XR'}</msg>
-<status status="PASS" starttime="20220711 21:28:30.926" endtime="20220711 21:28:30.926"/>
+<msg timestamp="20220711 21:56:26.005" level="INFO">${mobile emulation} = {'deviceName': 'iPhone XR'}</msg>
+<status status="PASS" starttime="20220711 21:56:26.005" endtime="20220711 21:56:26.005"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20220711 21:28:30.927" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10b591a60&gt;</msg>
-<status status="PASS" starttime="20220711 21:28:30.927" endtime="20220711 21:28:30.927"/>
+<msg timestamp="20220711 21:56:26.006" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x105a38a90&gt;</msg>
+<status status="PASS" starttime="20220711 21:56:26.006" endtime="20220711 21:56:26.006"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome options}</arg>
@@ -24,125 +24,125 @@
 <arg>mobileEmulation</arg>
 <arg>${mobile emulation}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20220711 21:28:30.927" endtime="20220711 21:28:30.928"/>
+<status status="PASS" starttime="20220711 21:56:26.006" endtime="20220711 21:56:26.006"/>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <arg>Chrome</arg>
 <arg>chrome_options=${chrome options}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20220711 21:28:30.928" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20220711 21:28:30.928" endtime="20220711 21:28:33.772"/>
+<msg timestamp="20220711 21:56:26.007" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220711 21:56:26.006" endtime="20220711 21:56:28.601"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:30.925" endtime="20220711 21:28:33.773"/>
+<status status="PASS" starttime="20220711 21:56:26.005" endtime="20220711 21:56:28.602"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>https://twitch.tv</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220711 21:28:33.774" level="INFO">Opening url 'https://twitch.tv'</msg>
-<status status="PASS" starttime="20220711 21:28:33.774" endtime="20220711 21:28:40.406"/>
+<msg timestamp="20220711 21:56:28.603" level="INFO">Opening url 'https://twitch.tv'</msg>
+<status status="PASS" starttime="20220711 21:56:28.602" endtime="20220711 21:56:32.908"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${SEARCH_BUTTON}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220711 21:28:40.407" endtime="20220711 21:28:40.853"/>
+<status status="PASS" starttime="20220711 21:56:32.909" endtime="20220711 21:56:33.293"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${SEARCH_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:40.854" level="INFO">Clicking button '//button[@aria-label='Search']'.</msg>
-<status status="PASS" starttime="20220711 21:28:40.853" endtime="20220711 21:28:41.047"/>
+<msg timestamp="20220711 21:56:33.293" level="INFO">Clicking button '//button[@aria-label='Search']'.</msg>
+<status status="PASS" starttime="20220711 21:56:33.293" endtime="20220711 21:56:33.500"/>
 </kw>
 <kw name="Search for keyword">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${SEARCH_INPUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220711 21:28:41.048" endtime="20220711 21:28:41.525"/>
+<status status="PASS" starttime="20220711 21:56:33.502" endtime="20220711 21:56:34.527"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${SEARCH_INPUT}</arg>
 <arg>monster hunter: world</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:41.526" level="INFO">Typing text 'monster hunter: world' into text field '//input[@type='search']'.</msg>
-<status status="PASS" starttime="20220711 21:28:41.526" endtime="20220711 21:28:41.853"/>
+<msg timestamp="20220711 21:56:34.528" level="INFO">Typing text 'monster hunter: world' into text field '//input[@type='search']'.</msg>
+<status status="PASS" starttime="20220711 21:56:34.527" endtime="20220711 21:56:34.824"/>
 </kw>
 <kw name="Press Keys" library="SeleniumLibrary">
 <arg>${SEARCH_INPUT}</arg>
 <arg>ENTER</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20220711 21:28:41.856" level="INFO">Sending key(s) ('ENTER',) to //input[@type='search'] element.</msg>
-<msg timestamp="20220711 21:28:42.290" level="INFO">Pressing special key ENTER to element.</msg>
-<msg timestamp="20220711 21:28:42.290" level="INFO">Releasing special key ENTER.</msg>
-<status status="PASS" starttime="20220711 21:28:41.853" endtime="20220711 21:28:42.403"/>
+<msg timestamp="20220711 21:56:34.825" level="INFO">Sending key(s) ('ENTER',) to //input[@type='search'] element.</msg>
+<msg timestamp="20220711 21:56:35.318" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220711 21:56:35.318" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220711 21:56:34.824" endtime="20220711 21:56:35.447"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:41.048" endtime="20220711 21:28:42.403"/>
+<status status="PASS" starttime="20220711 21:56:33.501" endtime="20220711 21:56:35.447"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${TAB_CHANNELS}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:42.405" level="INFO">Clicking element '//div/p[text()='Channels']'.</msg>
-<status status="PASS" starttime="20220711 21:28:42.404" endtime="20220711 21:28:42.627"/>
+<msg timestamp="20220711 21:56:35.448" level="INFO">Clicking element '//div/p[text()='Channels']'.</msg>
+<status status="PASS" starttime="20220711 21:56:35.447" endtime="20220711 21:56:35.674"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${LIST_VIDEOS}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220711 21:28:42.627" endtime="20220711 21:28:43.307"/>
+<status status="PASS" starttime="20220711 21:56:35.674" endtime="20220711 21:56:36.365"/>
 </kw>
 <kw name="Try specific channel">
 <kw name="Get WebElements" library="SeleniumLibrary">
 <var>${videos}</var>
 <arg>${ALL_VIDEOS_LIST}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20220711 21:28:43.322" level="INFO">${videos} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="9ec8b307ab597e590e32bb4f36a79f79", element="729878a0-cb7f-4a08-9599-58e2966a9faa")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
-<status status="PASS" starttime="20220711 21:28:43.308" endtime="20220711 21:28:43.322"/>
+<msg timestamp="20220711 21:56:36.382" level="INFO">${videos} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="36fcc5e23a0c373eea0591aa4e45d39d", element="41917f70-a54e-4bbf-b84a-7848287468dd")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220711 21:56:36.367" endtime="20220711 21:56:36.382"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>//a[@href='/94goinwater']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:43.323" level="INFO">Clicking element '//a[@href='/94goinwater']'.</msg>
-<msg timestamp="20220711 21:28:43.683" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20220711 21:28:43.684" level="FAIL">Element with locator '//a[@href='/94goinwater']' not found.</msg>
-<status status="FAIL" starttime="20220711 21:28:43.323" endtime="20220711 21:28:43.701"/>
+<msg timestamp="20220711 21:56:36.383" level="INFO">Clicking element '//a[@href='/94goinwater']'.</msg>
+<msg timestamp="20220711 21:56:36.923" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220711 21:56:36.924" level="FAIL">Element with locator '//a[@href='/94goinwater']' not found.</msg>
+<status status="FAIL" starttime="20220711 21:56:36.383" endtime="20220711 21:56:36.941"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Channel found</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20220711 21:28:43.702" endtime="20220711 21:28:43.702"/>
+<status status="NOT RUN" starttime="20220711 21:56:36.942" endtime="20220711 21:56:36.942"/>
 </kw>
-<status status="FAIL" starttime="20220711 21:28:43.322" endtime="20220711 21:28:43.702"/>
+<status status="FAIL" starttime="20220711 21:56:36.383" endtime="20220711 21:56:36.942"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Log To Console" library="BuiltIn">
 <arg>The specific channel is not in the list. click random channel</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220711 21:28:43.702" endtime="20220711 21:28:43.703"/>
+<status status="PASS" starttime="20220711 21:56:36.942" endtime="20220711 21:56:36.943"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${videos}[-1]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:43.703" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="9ec8b307ab597e590e32bb4f36a79f79", element="83461c92-8b21-41fc-8fa2-9c1ffb96e92b")&gt;'.</msg>
-<status status="PASS" starttime="20220711 21:28:43.703" endtime="20220711 21:28:43.879"/>
+<msg timestamp="20220711 21:56:36.943" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="36fcc5e23a0c373eea0591aa4e45d39d", element="34f72d1c-070f-435f-89bd-be3d56f931ea")&gt;'.</msg>
+<status status="PASS" starttime="20220711 21:56:36.943" endtime="20220711 21:56:37.115"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:43.702" endtime="20220711 21:28:43.879"/>
+<status status="PASS" starttime="20220711 21:56:36.942" endtime="20220711 21:56:37.115"/>
 </branch>
-<status status="PASS" starttime="20220711 21:28:43.322" endtime="20220711 21:28:43.879"/>
+<status status="PASS" starttime="20220711 21:56:36.383" endtime="20220711 21:56:37.115"/>
 </try>
-<status status="PASS" starttime="20220711 21:28:43.308" endtime="20220711 21:28:43.879"/>
+<status status="PASS" starttime="20220711 21:56:36.365" endtime="20220711 21:56:37.115"/>
 </kw>
 <kw name="Close lightweight model message">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${LIGHTWEIGHT_MODAL}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220711 21:28:43.880" endtime="20220711 21:28:44.143"/>
+<status status="PASS" starttime="20220711 21:56:37.116" endtime="20220711 21:56:37.382"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${LIGHTWEIGHT_MODAL}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220711 21:28:44.144" level="INFO">Clicking element '//button[@aria-label='Close']'.</msg>
-<status status="PASS" starttime="20220711 21:28:44.144" endtime="20220711 21:28:44.271"/>
+<msg timestamp="20220711 21:56:37.383" level="INFO">Clicking element '//button[@aria-label='Close']'.</msg>
+<status status="PASS" starttime="20220711 21:56:37.382" endtime="20220711 21:56:37.633"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:43.880" endtime="20220711 21:28:44.271"/>
+<status status="PASS" starttime="20220711 21:56:37.116" endtime="20220711 21:56:37.633"/>
 </kw>
 <kw name="Check for content warning">
 <try>
@@ -150,47 +150,47 @@
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${WARNING_MESSAGE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20220711 21:28:50.081" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20220711 21:28:50.081" level="FAIL">Element '//div[text()='Start Watching']' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20220711 21:28:44.272" endtime="20220711 21:28:50.089"/>
+<msg timestamp="20220711 21:56:43.144" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220711 21:56:43.145" level="FAIL">Element '//div[text()='Start Watching']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20220711 21:56:37.635" endtime="20220711 21:56:43.151"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${WARNING_MESSAGE}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20220711 21:28:50.090" endtime="20220711 21:28:50.090"/>
+<status status="NOT RUN" starttime="20220711 21:56:43.152" endtime="20220711 21:56:43.152"/>
 </kw>
-<status status="FAIL" starttime="20220711 21:28:44.272" endtime="20220711 21:28:50.090"/>
+<status status="FAIL" starttime="20220711 21:56:37.634" endtime="20220711 21:56:43.152"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Log To Console" library="BuiltIn">
 <arg>No warning message</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220711 21:28:50.091" endtime="20220711 21:28:50.091"/>
+<status status="PASS" starttime="20220711 21:56:43.152" endtime="20220711 21:56:43.153"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:50.090" endtime="20220711 21:28:50.092"/>
+<status status="PASS" starttime="20220711 21:56:43.152" endtime="20220711 21:56:43.153"/>
 </branch>
-<status status="PASS" starttime="20220711 21:28:44.272" endtime="20220711 21:28:50.092"/>
+<status status="PASS" starttime="20220711 21:56:37.634" endtime="20220711 21:56:43.153"/>
 </try>
-<status status="PASS" starttime="20220711 21:28:44.271" endtime="20220711 21:28:50.092"/>
+<status status="PASS" starttime="20220711 21:56:37.634" endtime="20220711 21:56:43.153"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5 secs</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220711 21:28:55.095" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220711 21:28:50.093" endtime="20220711 21:28:55.095"/>
+<msg timestamp="20220711 21:56:48.154" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220711 21:56:43.153" endtime="20220711 21:56:48.154"/>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220711 21:28:56.433" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220711 21:28:55.095" endtime="20220711 21:28:56.433"/>
+<msg timestamp="20220711 21:56:48.648" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220711 21:56:48.156" endtime="20220711 21:56:48.648"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220711 21:28:56.435" endtime="20220711 21:28:56.808"/>
+<status status="PASS" starttime="20220711 21:56:48.649" endtime="20220711 21:56:48.914"/>
 </kw>
-<status status="PASS" starttime="20220711 21:28:30.925" endtime="20220711 21:28:56.808"/>
+<status status="PASS" starttime="20220711 21:56:26.004" endtime="20220711 21:56:48.914"/>
 </test>
-<status status="PASS" starttime="20220711 21:28:30.569" endtime="20220711 21:28:56.810"/>
+<status status="PASS" starttime="20220711 21:56:25.668" endtime="20220711 21:56:48.915"/>
 </suite>
 <statistics>
 <total>
