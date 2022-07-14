@@ -1,6 +1,6 @@
 *** Settings ***
-Library  SeleniumLibrary
-Library  Collections
+Library     Collections
+Resource    ../../../Resources/DefineMobileBrowser.robot
 
 *** Variables ***
 ${MOBILE_DEVICE}        iPhone XR
@@ -13,34 +13,36 @@ ${ALL_VIDEOS_LIST}      //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
 ${LIGHTWEIGHT_MODAL}    //button[@aria-label='Close']
 
 *** Keywords ***
-Define mobile browser
-    ${mobile emulation}=    Create Dictionary    deviceName=${MOBILE_DEVICE}
-    ${chrome options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    Call Method    ${chrome options}    add_experimental_option    mobileEmulation    ${mobile emulation}
-    Create Webdriver    Chrome    chrome_options=${chrome options}
 
 Search for keyword
     Wait Until Element Is Visible   ${SEARCH_INPUT}
     Input Text                      ${SEARCH_INPUT}  monster hunter: world
     Press keys                      ${SEARCH_INPUT}  ENTER
 
-scroll
-    FOR     ${i}        IN RANGE       0        10
-        TRY
-            Press keys      NONE    TAB
-            LOG TO CONSOLE      ${i}
-        EXCEPT
-            LOG TO CONSOLE  use tab to scroll down
-        END
+
+scroll to last element
+    FOR     ${i}        IN RANGE    0       3
+        @{videos}=   Get WebElements     ${ALL_VIDEOS_LIST}
+        wait until element is visible    ${videos}[-1]
+        scroll element into view         ${videos}[-1]
     END
 
+scroll down
+   TRY
+        scroll to last element
+   EXCEPT
+        log to console    check scroll execution
+   END
+
+
 Try specific channel
-    ${videos}=  Get WebElements     ${ALL_VIDEOS_LIST}
+    @{videos}=  Get WebElements     ${ALL_VIDEOS_LIST}
     TRY
        Click element                //a[@href='/94goinwater']
        LOG TO CONSOLE               Channel found
     EXCEPT
         LOG TO CONSOLE              The specific channel is not in the list. click random channel
+        scroll down
         Click element               ${videos}[-1]
     END
 
