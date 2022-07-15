@@ -36,6 +36,13 @@ It requires the follow libraries.
 
 ## Compromises
 
-1. Since there is not an APK the emulation is down by using the mobile emulator of chrome.
-2. The Mobile emulator interfere with the JavaScript execution, which doesn't allow the usage of  `window.scrollTo(x-coord, y-coord)`
-3. To perform the scroll down I use tabs, by navigating with tabs one can scroll down, however it is not an optimal solution, a better approach will be by creating a custom library.
+* Since there is not an APK the emulation is down by using the mobile emulator of chrome.
+* The Mobile emulator interfere with the JavaScript execution, which doesn't allow the usage of  `window.scrollTo(x-coord, y-coord)`.  
+* ~~To perform the scroll down I use tabs, by navigating with tabs one can scroll down, however it is not an optimal solution, a better approach will be by creating a custom library.~~
+  * Modification to the scrolling. implementing: 
+    1. Select last item in the list of videos. 
+    2. Scroll into view. 
+    3. New videos enter the DOM. 
+    4. Get new list of videos. the last video in the list will be different than previous iteration 
+    5. Repeat proces
+    >Not final implementation but is more robust and reusable than scrolling base in tabs 
