@@ -9,8 +9,19 @@ It is divided in two folders:
 
 * `Test`: Directory containing the different directories with different test
 * `Test/FunctionalTestSuite`:  Contain the `.robot` files with the actual test case.
-* `TwitchVideoSearch.robot`:  The file containing the test case.
+* `VideoSearch_iOS.robot`:  The file containing the test case running mobile iOS devices.
+* `VideoSearch_Android.robot`:  The file containing the test case running mobile Android devices.
+* `Resources`: contain code need it for all test cases, the resources will avoid duplication and help with maintenance in the future, since all common keywords are here.
+* `Resources/Search/Search.robot`: The custom keyword that are used to perform the search
+* `Resources/DefineMobileBrowser.robot` and `Resources/HandleModalStreamingScreen.robot` Configuration adn keywords that can be use in other test cases.
 * `Results`: contain the output files and the screenshot.
+
+
+## Change Log
+|Date| Comment                                                                                       |
+|:-----|:----------------------------------------------------------------------------------------------|
+|2022/07/15| Modification in structure, **Main Risk**: duplication on Test execution -> concider templates |
+
 
 ## How to run 
 It requires the follow libraries.

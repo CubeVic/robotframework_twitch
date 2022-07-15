@@ -1,10 +1,7 @@
 *** Settings ***
-Library     Collections
-Resource    ../../../Resources/DefineMobileBrowser.robot
-Resource    ../../../Resources/HandleModalsStreamingScreen.robot
+Library    SeleniumLibrary
 
 *** Variables ***
-${MOBILE_DEVICE}        iPhone XR
 ${SEARCH_BUTTON}        //button[@aria-label='Search']
 ${SEARCH_INPUT}         //input[@type='search']
 ${TAB_CHANNELS}         //div/p[text()='Channels']
@@ -12,12 +9,11 @@ ${LIST_VIDEOS}          //div[@role='list']//a
 ${ALL_VIDEOS_LIST}      //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
 
 *** Keywords ***
-
 Search for keyword
     Wait Until Element Is Visible   ${SEARCH_INPUT}
     Input Text                      ${SEARCH_INPUT}  monster hunter: world
     Press keys                      ${SEARCH_INPUT}  ENTER
-`
+
 Perform Search
     Wait Until Element Is Visible       ${SEARCH_BUTTON}
     Click button                        ${SEARCH_BUTTON}
@@ -60,18 +56,3 @@ Try specific channel
         log to console              ${item}
         Click element               ${item}
     END
-
-*** Test Cases ***
-Twitch test
-    Define mobile browser
-    Go To                               https://twitch.tv
-    Perform Search
-    Switch to tab channels
-    Try specific channel
-    Close lightweight model message
-    Check for content warning
-    # TODO: Improve waiting method sleep is not recommended
-    Sleep  5 secs
-    Capture page screenshot
-    [Teardown]  close browser
-
