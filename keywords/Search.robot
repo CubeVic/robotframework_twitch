@@ -1,13 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-*** Variables ***
-${SEARCH_BUTTON}        //button[@aria-label='Search']
-${SEARCH_INPUT}         //input[@type='search']
-${TAB_CHANNELS}         //div/p[text()='Channels']
-${LIST_VIDEOS}          //div[@role='list']//a
-${ALL_VIDEOS_LIST}      //a[@class='ScCoreLink-sc-udwpw5-0 hnofyY tw-link']
-
 *** Keywords ***
 Search for keyword
     Wait Until Element Is Visible   ${SEARCH_INPUT}

@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  robotframework:
+    build:
+      context: .
+    command: [
+      "--language", "${LANG:-zh-TW}",
+      "-d", "/output",
+      "-V", "/variable.yaml",
+      "--runemptysuite",
+      # "--include", "${TC_TAGs}",
+      "Test/twitch/test_test.robot"
+    ]
+    env_file: .env
+    volumes:
+    # - ./.output:/output
+    - ./.variable.yaml:/variable.yaml:ro
+  #   depends_on:
+  #   - server
+  #   - ngrok
+
+  # server:
+  #   build:
+  #     context: server
+  #   command: ["--debug", "run", "-h", "0.0.0.0", "-p", "5000"]
+  #   env_file: .env
+  #   environment:
+  #   - NGROK_API_URL=http://ngrok:4040
+  #   - SECRET_KEY=deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+  #   ports:
+  #   - 5000:5000/tcp
+  #   volumes:
+  #   - ./server/:/usr/app:ro
+
+  # ngrok:
+  #   image: ngrok/ngrok
+  #   command: ["http", "server:5000"]
+  #   env_file: .env
+  #   environment:
+  #   - SECRET_KEY=deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+  #   ports:
+  #   - 4040:4040/tcp
+  #   depends_on:
+  #   - server

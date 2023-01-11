@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230115 22:06:10.067" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Test" source="/Users/Vktor/vscode_workspace/robotframework_twitch/Testsuites/twitch/test_test.robot">
+<test id="s1-t1" name="Open app" line="10">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${mobile emulation}</var>
+<arg>deviceName=${Android_devices}[pixel]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230115 22:06:10.259" level="INFO">${mobile emulation} = {'deviceName': 'Pixel 5'}</msg>
+<status status="PASS" starttime="20230115 22:06:10.259" endtime="20230115 22:06:10.259"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{options}</var>
+<arg>mobileEmulation=${mobile emulation}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230115 22:06:10.261" level="INFO">&amp;{options} = { mobileEmulation={'deviceName': 'Pixel 5'} }</msg>
+<status status="PASS" starttime="20230115 22:06:10.261" endtime="20230115 22:06:10.261"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>ulr=${url}</arg>
+<arg>browser=Chrome</arg>
+<arg>options=&amp;{options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230115 22:06:10.263" level="INFO">Opening browser 'Chrome' to base url 'ulr=https://twitch.com'.</msg>
+<msg timestamp="20230115 22:06:10.264" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230115 22:06:10.264" level="FAIL">AttributeError: _ignore_local_proxy</msg>
+<status status="FAIL" starttime="20230115 22:06:10.262" endtime="20230115 22:06:10.275"/>
+</kw>
+<status status="FAIL" starttime="20230115 22:06:10.258" endtime="20230115 22:06:10.276">AttributeError: _ignore_local_proxy</status>
+</test>
+<status status="FAIL" starttime="20230115 22:06:10.069" endtime="20230115 22:06:10.276"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Test">Test Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230115 22:06:10.089" level="ERROR">Error in file '/Users/Vktor/vscode_workspace/robotframework_twitch/Testsuites/twitch/test_test.robot' on line 2: Resource file 'profiles/devices/android.resource' does not exist.</msg>
+</errors>
+</robot>

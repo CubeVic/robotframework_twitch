@@ -3,37 +3,13 @@ Library     Collections
 Resource    ../../../Resources/DefineMobileBrowser.robot
 Resource    ../../../Resources/Search/Search.robot
 Resource    ../../../Resources/HandleModalsStreamingScreen.robot
-Resource    ../../../Resources/iOSDevices.robot
+Resource    ../../../Resources/AndroidDevices.robot
 
-
-*** Variables ***
-
-*** Keywords ***
-
-iPhone SE
-    iOS devices
-    Define mobile browser       ${MOBILE_DEVICES_iOS}[SE]
-
-iPhone XR
-    iOS devices
-    Define mobile browser       ${MOBILE_DEVICES_iOS}[XR]
-
-iPhone 12
-    iOS devices
-    Define mobile browser       ${MOBILE_DEVICES_iOS}[XR]
-
-iPhone air
-    iOS devices
-    Define mobile browser       ${MOBILE_DEVICES_iOS}[air]
-
-iPhone mini
-    iOS devices
-    Define mobile browser       ${MOBILE_DEVICES_iOS}[mini]
 
 *** Test Cases ***
 #TODO: A better implementation will be Templates
-Twitch iPhone SE
-    iPhone SE
+Twitch Pixel 5
+    Pixel 5
     Go To                               https://twitch.tv
     Perform Search
     Switch to tab channels
@@ -45,9 +21,8 @@ Twitch iPhone SE
     Capture page screenshot
     [Teardown]  close browser
 
-
-Twitch iPhone XR
-    iPhone XR
+Twitch Samsung Galaxy S8+
+    Samsung Galaxy S8+
     Go To                               https://twitch.tv
     Perform Search
     Switch to tab channels
@@ -59,9 +34,8 @@ Twitch iPhone XR
     Capture page screenshot
     [Teardown]  close browser
 
-
-Twitch iPhone 12
-    iPhone 12
+Twitch Galaxy Fold
+    Galaxy Fold
     Go To                               https://twitch.tv
     Perform Search
     Switch to tab channels
@@ -73,8 +47,8 @@ Twitch iPhone 12
     Capture page screenshot
     [Teardown]  close browser
 
-Twitch iPhone air
-    iPhone air
+Twitch Samsung Galaxy S20 Ultra
+    Samsung Galaxy S20 Ultra
     Go To                               https://twitch.tv
     Perform Search
     Switch to tab channels
@@ -85,17 +59,3 @@ Twitch iPhone air
     Sleep  5 secs
     Capture page screenshot
     [Teardown]  close browser
-
-Twitch iPhone mini
-    iPhone mini
-    Go To                               https://twitch.tv
-    Perform Search
-    Switch to tab channels
-    Try specific channel
-    Close lightweight model message
-    Check for content warning
-    # TODO: Improve waiting method sleep is not recommended
-    Sleep  5 secs
-    Capture page screenshot
-    [Teardown]  close browser
-

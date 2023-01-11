@@ -1,0 +1,17 @@
+diff --git a/running/namespace.py b/running/namespace.py
+index c71823a..06fcb30 100644
+--- a/running/namespace.py
++++ b/running/namespace.py
+@@ -292,10 +292,10 @@ class KeywordStore:
+         runner = self._get_runner_from_suite_file(name)
+         if not runner and '.' in name:
+             runner = self._get_explicit_runner(name)
+-        if not runner:
+-            runner = self._get_implicit_runner(name)
+         if not runner:
+             runner = self._get_bdd_style_runner(name, self.languages.bdd_prefixes)
++        if not runner:
++            runner = self._get_implicit_runner(name)
+         return runner
+
+     def _get_bdd_style_runner(self, name, prefixes):
